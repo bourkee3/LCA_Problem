@@ -1,49 +1,56 @@
+//Given a binary tree, find the lowest common ancestor of two given nodes in the tree
+
+class TreeNode{
+	int data;
+	TreeNode left, right;
+
+	public TreeNode(int item){
+
+		data = item;
+
+		left = null;
+
+		left = right; 
+	}
+}
 
 public class LCA {
+	
+	//Create root of the binary tree
 
-	public class TreeNode{
-		int data;
-		TreeNode left, right;
-
-		public TreeNode(int item){
-
-			data = item;
-
-			left = null;
-
-			left = right; 
-		}
+	TreeNode root;
+	TreeNode findLCA( int n1, int n2){
+		return findLCA(root, n1, n2);
 	}
 
-	public class BinaryTree {
+	TreeNode findLCA(TreeNode n, int n1, int n2){
 		
-		TreeNode root;
-		TreeNode findLCA( int n1, int n2){
-			return findLCA(root, n1, n2);
+		//End case
+		if ( n == null){
+			return null;
 		}
-
-		TreeNode findLCA(TreeNode n, int n1, int n2){
-
-			if ( n == null){
-				return null;
-			}
-			if( n.data == n1 || n.data == n2){
-				return n;
-			}
-
-			TreeNode leftLCA = findLCA(n.left, n1, n2);
-			TreeNode rightLCA = findLCA(n.right, n1,n2);
-			
-			if( leftLCA != null && rightLCA != null){
-				return n;
-			}return (leftLCA != null) ? leftLCA : rightLCA;
-			
+		
+		//Checks to see whether either node: n1 or n2 matches the root key
+		if( n.data == n1 || n.data == n2){
+			return n;		//returns n if present
 		}
+		
+		//Now Check for keys in both left and right subtrees
 
+		TreeNode leftLCA = findLCA(n.left, n1, n2);
+		TreeNode rightLCA = findLCA(n.right, n1,n2);
 
+		//Checks to see of they are present
+		if( leftLCA != null && rightLCA != null){
+			return n;
+		}return (leftLCA != null) ? leftLCA : rightLCA;			//If the are, returns the LCA of both subtrees 
 
 	}
 
 
 
 }
+
+
+
+
