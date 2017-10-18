@@ -19,6 +19,13 @@ public class LCATest{
 		
 		assertNull("Test method returns null for an empty tree", tree.findLCA(1,2));
 	}
+	
+	@Test
+	public void testTreeNodeConstructor() {
+		TreeNode temp = new TreeNode(1);
+		assertNotNull("Testing TreeNode constructor: ", temp);
+	}
+
 
 
 	
