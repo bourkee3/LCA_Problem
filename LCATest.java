@@ -32,6 +32,15 @@ public class LCATest{
 		tree.root = new TreeNode(1);
 		assertEquals("Binary Tree Test to see whether a Tree w/ only one node returns that nodes key when the parameters passed are both that nodes key.", 1, tree.findLCA(1,1).data);
 	}
+	
+	@Test
+	public void testTwoNodes() {
+		LCA tree = new LCA();
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		assertEquals("Test that a Binary Tree with only one root and one child. ", 1, tree.findLCA(1, 2).data);	
+	}
+
 
 
 
