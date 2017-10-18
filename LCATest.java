@@ -25,6 +25,14 @@ public class LCATest{
 		TreeNode temp = new TreeNode(1);
 		assertNotNull("Testing TreeNode constructor: ", temp);
 	}
+	
+	@Test
+	public void testOneNode() {
+		LCA tree = new LCA();
+		tree.root = new TreeNode(1);
+		assertEquals("Binary Tree Test to see whether a Tree w/ only one node returns that nodes key when the parameters passed are both that nodes key.", 1, tree.findLCA(1,1).data);
+	}
+
 
 
 
