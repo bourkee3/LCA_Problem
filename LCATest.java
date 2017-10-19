@@ -78,11 +78,23 @@ public class LCATest{
 		assertEquals("LCA of 8 and 9 :", 4, tree.findLCA(8,9).data);
 
 
+	}
+
+	@Test
+	public void testForNonExistentNodes(){
+
+		LCA tree = new LCA();
+		tree.root = new TreeNode(1);
+		tree.root.left = new TreeNode(2);
+		tree.root.right = new TreeNode(3);
+		tree.root.left.left = new TreeNode(4);
 
 
 
+		assertEquals("Test to find lowest common ancestors of non-existent nodes in populated binary tree: ", null, tree.findLCA(94, 37));
 
 	}
+
 
 
 
