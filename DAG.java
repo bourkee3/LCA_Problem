@@ -93,4 +93,13 @@ public class DAG {
         return false;
     }
 	
+	public void addToGraph(TreeNode n1)
+	{
+		n1.ancestors = new ArrayList <TreeNode> ();
+		n1.ancestors.add(n1);
+		
+	}
+	
+	
+	
 }
