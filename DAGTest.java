@@ -72,6 +72,24 @@ public class DAGTest {
 		assertEquals("LCA of this tree is", 1,
 				newTree.LCA(15, 1));
 	}
+	
+	//Testing an empty graph
+	
+	@Test
+	public void testEmptyGraph() {
+		DAG DAG = new DAG();
+		assertEquals(0, DAG.findLCA_DAG(null, null, null));
+	}
+
+	//Testing a graph with only one node 
+	
+	@Test
+	public void testGraphOneNode() {
+		DAG DAG = new DAG();
+		TreeNode n1 = new TreeNode(1);
+		DAG.addToGraph(n1);
+		assertEquals(1, DAG.findLCA_DAG(n1, n1, n1));
+	}
 
 
 }
