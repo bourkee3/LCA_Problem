@@ -73,6 +73,28 @@ public class DAGTest {
 				newTree.LCA(15, 1));
 	}
 	
+	//New test 
+	
+	@Test
+	public void testNonExistentNode() {
+		DAG binaryTree15Nodes = new DAG();
+		newTree.rootNode = new TreeNode(1);
+		newTree.rootNode.left = new TreeNode(2);
+		newTree.rootNode.right = new TreeNode(3);
+		newTree.rootNode.left.left = new TreeNode(4);
+		newTree.rootNode.left.right = new TreeNode(5);
+		newTree.rootNode.right.left = new TreeNode(6);
+		newTree.rootNode.right.right = new TreeNode(7);
+		newTree.rootNode.left.left.left = new TreeNode(8);
+		newTree.rootNode.left.left.right = new TreeNode(9);
+		newTree.rootNode.left.right.left = new TreeNode(10);
+		newTree.rootNode.left.right.right = new TreeNode(11);
+		
+
+		assertEquals(-1, binaryTree15Nodes.LCA(2, 17));
+		assertEquals(-1, binaryTree15Nodes.LCA(23, 17));
+	}
+	
 	//Testing an empty graph
 	
 	@Test
@@ -90,6 +112,8 @@ public class DAGTest {
 		DAG.addToGraph(n1);
 		assertEquals(1, DAG.findLCA_DAG(n1, n1, n1));
 	}
+	
+	
 
 
 }
