@@ -100,6 +100,27 @@ public class DAG {
 		
 	}
 	
+	public void addAncestorsToNode(TreeNode n1, TreeNode n2)
+	{
+		for (int i=0; i < n1.ancestors.size(); i++)
+		{
+			if(!n2.ancestors.contains(n1.ancestors.get(i)))
+			{
+				n2.ancestors.add(n1.ancestors.get(i));
+			}
+		}
+	}
+	public void addAncestorsToNodeAtPosition(int p, TreeNode n1, TreeNode n2)
+	{
+		for (int i=0; i < n1.ancestors.size(); i++)
+		{
+			if(!n2.ancestors.contains(n1.ancestors.get(i)))
+			{
+				n2.ancestors.add(p, n1.ancestors.get(i));
+			}
+		}
+	}
+	
 	
 	
 }
