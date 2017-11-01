@@ -95,6 +95,52 @@ public class DAGTest {
 		assertEquals(-1, binaryTree15Nodes.LCA(23, 17));
 	}
 	
+	@Test
+	public void testDAG1() {
+	
+		DAG DAG1 = new DAG();
+		
+		//create the nodes to place in the DAG
+
+		TreeNode rootNode = new TreeNode(1); //initial root node , start node
+		
+		TreeNode node2 = new TreeNode(2);
+		TreeNode node3 = new TreeNode(3);
+		TreeNode node4 = new TreeNode(4);
+		TreeNode node5 = new TreeNode(5);
+		TreeNode node6 = new TreeNode(6);
+		
+		//adding the nodes to the graph
+
+		DAG1.addToGraph(rootNode);
+		DAG1.addToGraph(node2);
+		DAG1.addToGraph(node3);
+		DAG1.addToGraph(node4);
+		DAG1.addToGraph(node5);
+		DAG1.addToGraph(node6);
+
+		DAG1.addAncestorsToNode(rootNode, node2);
+		DAG1.addAncestorsToNode(node2, node3);
+		DAG1.addAncestorsToNode(node2, node4);
+		DAG1.addAncestorsToNode(node3, node5);
+		DAG1.addAncestorsToNode(node5, node6);
+		
+		
+		DAG1.addAncestorsToNodeAtPosition(1, node4, node6);
+		
+		//testing the find LCA of a DAG function 
+
+		assertEquals(5, DAG1.findLCA_DAG(rootNode, node6, node5));
+		assertEquals(4, DAG1.findLCA_DAG(rootNode, node6, node4));
+		assertEquals(3, DAG1.findLCA_DAG(rootNode, node6, node3));
+		assertEquals(2, DAG1.findLCA_DAG(rootNode, node4, node5));
+		assertEquals(2, DAG1.findLCA_DAG(rootNode, node6, node2));
+		assertEquals(1, DAG1.findLCA_DAG(rootNode, node2, rootNode));
+		assertEquals(1, DAG1.findLCA_DAG(rootNode, rootNode, rootNode));
+		
+		
+	}
+	
 	//Testing an empty graph
 	
 	@Test
