@@ -20,6 +20,11 @@ public class DAGTest {
 		assertEquals("Testing the lowest common ancestor of a one node tree", -1,
 				treeOneNode.LCA(1, 0));
 	}
+	
+	//Create new Directed Acyclic Graph to use in tests
+	DAG newTree = new DAG();
+	
+	
 
 
 }
